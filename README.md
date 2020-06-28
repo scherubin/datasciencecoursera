@@ -23,7 +23,8 @@ Files:
 
 Description:
 
-The  "run_analysis.R" script contains the code for Course Project of "Getting and Cleaning Data" (week 4) from the Data Science Specialty course from JHU. 
+The  **"run_analysis.R"** script contains the code for Course Project of "Getting and Cleaning Data" (week 4) from the Data Science Specialty course from JHU.
+
 The R script uses data from the Human Activity Recognition Using Smartphones Dataset (source: Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012)
 
 The R script does the following:
@@ -34,6 +35,8 @@ The R script does the following:
 * Appropriately labels the data set with descriptive variable names.
 * From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-"train_test.csv" is the tidy dataset with the mean and standard deviations for each measurement (step 4)
-"average.csv" is the tidy dataset with the average of each variable for each activity and each subject (step 5).
-"CodeBook.md" is a code book that describes the variables, the data, and the transformations erformed to clean up the data.
+**"train_test.csv"** is the tidy dataset with the mean and standard deviations for each measurement (step 4).
+
+**"average.csv"** is the tidy dataset with the average of each variable for each activity and each subject (step 5).
+
+**"CodeBook.md"** is a code book that describes the variables, the data, and the transformations erformed to clean up the data.
