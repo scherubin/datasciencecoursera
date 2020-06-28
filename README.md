@@ -17,8 +17,6 @@ Description:
 ###### GETTING AND CLEANING DATA (COURSE 3- JUNE 2020) #####
 Files:
 * run_analysi.R
-* train_test.csv
-* average.csv
 * CodeBook.md
 
 Description:
@@ -35,8 +33,4 @@ The R script does the following:
 * Appropriately labels the data set with descriptive variable names.
 * From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-**"train_test.csv"** is the tidy dataset with the mean and standard deviations for each measurement (step 4).
-
-**"average.csv"** is the tidy dataset with the average of each variable for each activity and each subject (step 5).
-
-**"CodeBook.md"** is a code book that describes the variables, the data, and the transformations erformed to clean up the data.
+The **"CodeBook.md"** markdown is a code book that describes the variables, the data, and the transformations erformed to clean up the data.
