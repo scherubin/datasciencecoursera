@@ -85,6 +85,4 @@ average <- test_train %>%
                 unique()
 
 #### saving the datasets####
-write.csv(test_train, file = "test_train.csv")
-write.csv(average, file = "average.csv")
-
+write.table (average, file = "average.txt", row.name=FALSE)
