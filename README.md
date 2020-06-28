@@ -4,7 +4,7 @@ datasciencecoursera
 This is a repository for the assignments from courses in the "Data Science Specialization" by the Johns Hopkins University (Coursera).
 
 
-######### R PROGRAMMING (COURSE 2- MAY 2020) ########
+###### R PROGRAMMING (COURSE 2- MAY 2020) #####
 
 Files:
 best.R
