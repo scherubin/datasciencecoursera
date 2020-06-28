@@ -1,0 +1,118 @@
+---
+title: "CodeBook"
+author: "Sinaida"
+date: "28/6/2020"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+# DESCRIPTION OF THE ORIGINAL DATASET
+The Human Activity Recognition Using Smartphones data was collected from the accelerometers from the Samsung Galaxy S smartphone. 
+
+30 volunteers within an age bracket of 19-48 years performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, 3-axial linear acceleration and 3-axial angular velocity were captured at a constant rate. 70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
+
+**The original "training" and "test" datasets have been merged and cleaned to provide a tidy dataset that can be used for later analysis.**
+
+# GENERATION OF THE "test_train" DATASET
+
+The **test_train** dataset was generated from the original data using the following transformations:
+
+1. Reading the **X_test.txt** dataset which contains the 561-feature vector for the 9 of the "test" participants with time and frequency domain variables.
+
+2. Creating the **new_test** dataset:
+
+   + labeling the features of the feature vector using the **features.txt**
+   + merging the **y_test.txt** (activities), **subject_test.txt** (participant ID), and the vector dataset.
+   + renaming the "id" and "activities" variables
+   + labeling the activities by merging with the **activity_labels.txt**
+   + removing the numeric "activity" variable and replacing it with the descriptive "activity" variable.
+   + Extracting only the measurements on the mean and standard deviation for each measurement.
+  
+3. Performing the same transformations to the **X_train.txt** dataset which contains the 561-feature vector for the 21 "training" participants with time and frequency domain variables.This creates the **new_train** dataset.
+
+4. Creating the **test_train** dataset:
+   + binding the rows of the **new_test** and **new_train** datasets.
+   + arranging the dataset by subject id.
+   + collapsing the measurements into the *measurement* variable.
+   + Splitting the *measurement* variable to create the *statistic*, *vector* and *domain* variables.
+   + Pulling out the magnitude from the measurement name to a value under the *vector* variable.
+
+5. The final dataset contains the following variables:
+    + *id*, 
+    + *activity*, 
+    + *domain*, 
+    + *measurement*, 
+    + *vector*, 
+    + *values*
+
+# GENERATION OF THE "average" DATASET
+
+The **average** dataset contains the average of each variable for each activity and each subject. It was created from the **test_train** dataset using the following transformations:
+
+1. Grouping the **test_train** dataset by *vector*, then by *statistic*, *measurement*, *domain*, *activity*, and finally *id*
+
+2. Calculating the average of the *values* and creating the *average* variable.
+
+3. Removing the *values* variable.
+
+4. Removing duplicates.
+
+5. The final dataset contains the following variables:
+
+   + *id*, 
+   + *activity*, 
+   + *domain*, 
+   + *measurement*, 
+   + *vector*, 
+   + *statistic*, 
+   + *average*.
+   
+
+# VARIABLES:
+
+* **activity** 
+  + description: activity performed during the window.
+  + values: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING.
+  
+* **average**
+  + Description: average of each measurement for each activity and each subject by vector.
+  + Values: -1 to +1
+  + Units
+    - Acceleration: gravity (g)
+    - Angular velocity: radians/seconds
+    - Jerk: acceleration/seconds or angular velocity/seconds
+  
+* **domain** 
+  + description: domain of the measurement reported.
+  + Values: t= time domain, f= frequency domain
+  
+* **id**
+  + Description: subject ID
+  + Values: 1 to 30
+
+* **measurement**
+  + Description: features of the 561-feature vector obtained from the phone sensors
+  + Values:
+    - BodyAcc 
+    - BodyAccJerk
+    - BodyBodyAccJerk
+    - BodyBodyGyro 
+    - BodyBodyGyroJerk
+    - BodyGryo
+    - BodyGyroJerk
+    - GravityAcc
+ 
+* **statistic**
+  + Decription: statistic reported for the measurement
+  + Values: mean, std (standard deviation)
+    
+ * **vectors**
+   + Description: axis of the signal
+   + Values: X, Y, Z, Mag (magnitude)
+   
+ * **values**
+   + Description: value of the reading for each window
+   + Values: -1 to +1
